@@ -1,1 +1,15 @@
 name: on-block all use case
+on:
+  workflow_dispatch:
+jobs:
+  on-block:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: install python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10
+      - name: run the python file
+        run: python3 ./.github/workflows/on-block.py
